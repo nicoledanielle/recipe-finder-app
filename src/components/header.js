@@ -1,18 +1,16 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 
-export default class Header extends React.Component {
-  render() {
-    return(
-      <View style={styles.headcontainer}>
-        <Text style={styles.headtext}>Recipe Finder</Text>
-      </View>
-    )
-  }
-}
+export default function Header(props) {
+  return(
+    <View style={styles.headContainer}>
+      <Text style={styles.headText}>{props.headerText}</Text>
+    </View>
+  )
+};
 
 const styles = StyleSheet.create({
-  headcontainer: {
+  headContainer: {
     backgroundColor: '#f8f8f8',
     alignItems: 'center',
     justifyContent: 'center',
@@ -24,7 +22,7 @@ const styles = StyleSheet.create({
     elevation: 2,
     position: 'relative'
   },
-  headtext: {
+  headText: {
     fontSize: 30
   }
 });
