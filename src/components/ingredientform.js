@@ -13,13 +13,12 @@ export class IngredientForm extends React.Component {
   }
 
   handleInputChange(e) {
-    console.log(e);
-    // if (target.name === 'form') {
-    //   this.setState({
-    //     text: target.value
-    //   })
-    // }
-    // console.log(this.state.text);
+    if (target.name === 'form') {
+      this.setState({
+        text: target.value
+      })
+    }
+    console.log(this.state.text);
   }
 
   handleSubmit = () => {
