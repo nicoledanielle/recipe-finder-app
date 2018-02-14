@@ -1,6 +1,7 @@
 'use strict';
 
 const initialState = {
+  text: '',
   ingredients: [],
   recipes: []
 };
