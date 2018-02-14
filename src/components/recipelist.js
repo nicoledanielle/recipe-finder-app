@@ -5,8 +5,8 @@ import { fetchRecipes } from '../actions/recipes';
 
 export class RecipeList extends React.Component {
   componentWillMount(){
-    console.log(this.props);
-    this.props.dispatch(fetchRecipes('broccoli'));
+    console.log('here');
+    // this.props.dispatch(fetchRecipes('broccoli'));
   }
 
   render() {
