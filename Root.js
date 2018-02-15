@@ -9,7 +9,7 @@ export default class Root extends React.Component {
     return (
       <View style={styles.container}>
         <Header headerText={'Recipe Finder'}/>
-        <IngredientForm />
+        {/* <IngredientForm /> */}
         <RecipeList />
       </View>
     )
