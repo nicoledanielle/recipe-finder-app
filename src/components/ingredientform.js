@@ -15,7 +15,8 @@ export class IngredientForm extends React.Component {
     this.handleInputChange = this.handleInputChange.bind(this);
   }
 
-  handleInputChange() {
+  handleInputChange(target) {
+    console.log(target);
     if (target.name === 'form') {
       this.setState({
         text: target.value
@@ -36,7 +37,7 @@ export class IngredientForm extends React.Component {
       <FormInput
         name='form'
         textInputRef='ingreds'
-        onChange={this.handleInputChange}
+        onChange={(element) => console.log(element)}
       />
       <Button
         title='Find Recipes!'

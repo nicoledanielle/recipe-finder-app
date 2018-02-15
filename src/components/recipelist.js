@@ -4,16 +4,9 @@ import { StyleSheet, View, Text } from 'react-native';
 import { fetchRecipes } from '../actions/recipes';
 import { List, ListItem } from 'react-native-elements';
 
-const list = [];
-
 export class RecipeList extends React.Component {
   componentWillMount(){
-    console.log('recipe list mounting');
-    this.props.dispatch(fetchRecipes('broccoli'));
-  }
-
-  componentDidMount(){
-    list = this.props.recipes;
+    // this.props.dispatch(fetchRecipes('broccoli'));
   }
 
   render() {
@@ -21,7 +14,7 @@ export class RecipeList extends React.Component {
     <View>
       <List containerStyle={{marginBottom: 20}}>
         {
-          list.map((l, i) => (
+          this.props.recipes.map((l, i) => (
             <ListItem
               roundAvatar
               avatar={{uri:l.url}}
