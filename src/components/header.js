@@ -11,7 +11,7 @@ export default function Header(props) {
 
 const styles = StyleSheet.create({
   headContainer: {
-    backgroundColor: '#f8f8f8',
+    backgroundColor: '#5352ed',
     alignItems: 'center',
     justifyContent: 'center',
     height: 100,
@@ -23,6 +23,8 @@ const styles = StyleSheet.create({
     position: 'relative'
   },
   headText: {
-    fontSize: 30
+    fontSize: 30,
+    color: '#f1f2f6',
+    fontWeight: 'bold'
   }
 });

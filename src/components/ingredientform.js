@@ -27,12 +27,23 @@ export class IngredientForm extends React.Component {
 
   render() {
     return(
-    <View>
-      <FormLabel>Ingredients</FormLabel>
+    <View style={styles.mainView}>
+      <FormLabel
+        labelStyle={{
+          color: "#2f3542",
+          fontWeight: "700",
+          backgroundColor: '#f1f2f6',
+        }}
+      >Ingredients</FormLabel>
       <FormInput
         name='form'
         textInputRef='ingreds'
         onChangeText={this.handleInputChange}
+        containerStyle={{
+          backgroundColor: '#f1f2f6',
+          color: "#2f3542",
+          fontWeight: "700"
+        }}
       />
       <Button
         title='Find Recipes!'
@@ -40,7 +51,7 @@ export class IngredientForm extends React.Component {
           fontWeight: "700"
         }}
         buttonStyle={{
-          backgroundColor: "rgba(132, 199, 186, 1)",
+          backgroundColor: "#ffa502",
           height: 45,
           borderColor: "transparent",
           borderWidth: 0,
@@ -54,12 +65,8 @@ export class IngredientForm extends React.Component {
 };
 
 const styles = StyleSheet.create({
-  textinput: {
-    backgroundColor: '#fff',
-    height: 100
-  },
-  button: {
-
+  mainView: {
+    backgroundColor: "#f1f2f6"
   }
 });
 

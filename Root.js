@@ -27,7 +27,7 @@ export function Root(props) {
 
   return (
     <View style={styles.container}>
-      <Header headerText={'Recipe Finder'}/>
+      <Header headerText={'CHEFSPIRATION'}/>
       {page}
     </View>
   )
@@ -35,7 +35,7 @@ export function Root(props) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#fff'
+    backgroundColor: '#f1f2f6'
   },
 });
 
