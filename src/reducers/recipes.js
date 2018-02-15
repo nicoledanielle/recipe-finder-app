@@ -39,13 +39,8 @@ export default function recipeReducer(state = initialState, action) {
       loading: false,
       error: null,
       recipes: action.recipes,
-      view: 'focus',
-      activeRecipe: {
-        title: '',
-        url: '',
-        image: '',
-        publisher: ''
-      }
+      view: 'detail',
+      activeRecipe: action.recipes[0]
     })
   }
   else if (action.type === FETCH_RECIPES_ERROR){

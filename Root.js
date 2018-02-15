@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import Header from './src/components/header';
 import RecipeList from './src/components/recipelist';
 import IngredientForm from './src/components/ingredientform';
+import RecipeDetail from './src/components/recipedetail';
 import { connect } from 'react-redux';
 
 export function Root(props) {
@@ -18,6 +19,11 @@ export function Root(props) {
   if (view === 'list'){
     page = <RecipeList />
   }
+
+  if (view === 'detail'){
+    page = <RecipeDetail />
+  }
+
 
   return (
     <View style={styles.container}>

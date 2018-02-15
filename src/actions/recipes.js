@@ -7,8 +7,9 @@ export const searchRecipesRequest = (ingredients) => ({
 })
 
 export const FETCH_RECIPES_REQUEST = 'FETCH_RECIPES_REQUEST';
-export const fetchRecipesRequest = () => ({
+export const fetchRecipesRequest = (view) => ({
   type: FETCH_RECIPES_REQUEST,
+  view
 })
 
 export const FETCH_RECIPES_SUCCESS = 'FETCH_RECIPES_SUCCESS';
