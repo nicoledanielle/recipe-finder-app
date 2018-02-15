@@ -6,7 +6,7 @@ import { List, ListItem } from 'react-native-elements';
 
 export class RecipeList extends React.Component {
   componentWillMount(){
-    // this.props.dispatch(fetchRecipes('broccoli'));
+    this.props.dispatch(fetchRecipes(this.props.ingredients));
   }
 
   render() {
@@ -17,7 +17,7 @@ export class RecipeList extends React.Component {
           this.props.recipes.map((l, i) => (
             <ListItem
               roundAvatar
-              avatar={{uri:l.url}}
+              avatar={{uri:l.image}}
               key={i}
               title={l.title}
             />
@@ -30,6 +30,7 @@ export class RecipeList extends React.Component {
 };
 
 const mapStateToProps = state => ({
+  ingredients: state.ingredients,
   recipes: state.recipes
 })
 

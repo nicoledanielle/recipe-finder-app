@@ -3,7 +3,8 @@
 import {
   FETCH_RECIPES_REQUEST,
   FETCH_RECIPES_SUCCESS,
-  FETCH_RECIPES_ERROR
+  FETCH_RECIPES_ERROR,
+  SEARCH_RECIPES_REQUEST
 } from '../actions/recipes'
 
 const initialState = {
@@ -11,7 +12,7 @@ const initialState = {
   loading: false,
   error: null,
   text: '',
-  ingredients: [],
+  ingredients: null,
   recipes: [],
   activeRecipe: {
     title: '',
@@ -22,7 +23,12 @@ const initialState = {
 };
 
 export default function recipeReducer(state = initialState, action) {
-  if(action.type === FETCH_RECIPES_REQUEST){
+  if (action.type === SEARCH_RECIPES_REQUEST){
+    return Object.assign({}, state, {
+      ingredients: action.ingredients
+    })
+  }
+  else if(action.type === FETCH_RECIPES_REQUEST){
     return Object.assign({}, state, {
       loading: true,
       error: null

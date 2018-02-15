@@ -1,5 +1,11 @@
 // import API_KEY from '../config';
 
+export const SEARCH_RECIPES_REQUEST = 'SEARCH_RECIPES_REQUEST';
+export const searchRecipesRequest = (ingredients) => ({
+  type: SEARCH_RECIPES_REQUEST,
+  ingredients
+})
+
 export const FETCH_RECIPES_REQUEST = 'FETCH_RECIPES_REQUEST';
 export const fetchRecipesRequest = () => ({
   type: FETCH_RECIPES_REQUEST,
@@ -16,6 +22,11 @@ export const fetchRecipesError = (error) => ({
   type: FETCH_RECIPES_ERROR,
   error
 })
+
+export const searchRecipes = (ingredients) => dispatch => {
+  dispatch(searchRecipesRequest(ingredients));
+  dispatch(fetchRecipes(ingredients));
+}
 
 export const fetchRecipes = (ingredients) => dispatch => {
   dispatch(fetchRecipesRequest());

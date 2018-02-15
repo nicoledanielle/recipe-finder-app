@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { FormLabel, FormInput, Button } from 'react-native-elements';
-import { fetchRecipes } from '../actions/recipes';
+import { fetchRecipes, searchRecipes } from '../actions/recipes';
 import { connect } from 'react-redux';
 
 export class IngredientForm extends React.Component {
@@ -16,18 +16,13 @@ export class IngredientForm extends React.Component {
   }
 
   handleInputChange(target) {
-    console.log(target);
-    if (target.name === 'form') {
-      this.setState({
-        text: target.value
-      })
-    }
-    console.log(this.state.text);
+    this.setState({
+      text: target
+    })
   }
 
   handleSubmit = () => {
-    // const value = this._form.getValue();
-    console.log('submission')
+    this.props.dispatch(searchRecipes(this.state.text))
   }
 
   render() {
@@ -37,7 +32,7 @@ export class IngredientForm extends React.Component {
       <FormInput
         name='form'
         textInputRef='ingreds'
-        onChange={(element) => console.log(element)}
+        onChangeText={this.handleInputChange}
       />
       <Button
         title='Find Recipes!'
