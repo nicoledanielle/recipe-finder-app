@@ -24,6 +24,18 @@ export const fetchRecipesError = (error) => ({
   error
 })
 
+export const VIEW_DETAIL_REQUEST = 'VIEW_DETAIL_REQUEST';
+export const viewDetailRequest = (activeRecipe) => ({
+  type: VIEW_DETAIL_REQUEST,
+  activeRecipe
+})
+
+export const VIEW_DETAIL_SUCCESS = 'VIEW_DETAIL_SUCCESS';
+export const viewDetailSuccess = (view) => ({
+  type: VIEW_DETAIL_SUCCESS,
+  view
+})
+
 export const searchRecipes = (ingredients) => dispatch => {
   dispatch(searchRecipesRequest(ingredients));
   dispatch(fetchRecipes(ingredients));
@@ -31,8 +43,10 @@ export const searchRecipes = (ingredients) => dispatch => {
 
 export const fetchRecipes = (ingredients) => dispatch => {
   dispatch(fetchRecipesRequest());
-  return fetch(`http://food2fork.com/api/search?key=47f4cb3436ae592fb10860d0f9ab7a81&q=${ingredients}`)
+  console.log('here');
+  return fetch(`http://food2fork.com/api/search?key=52cd696e0649c791e26a0ef726c4134a=${ingredients}`)
       .then(response => response.json())
+      .then(data => console.log(data))
       .then(data => {
         const recipes = data.recipes.map(recipe => {
           return {
@@ -46,4 +60,9 @@ export const fetchRecipes = (ingredients) => dispatch => {
       })
       .then(data => dispatch(fetchRecipesSuccess(data)))
       .catch(err => fetchRecipesError(err));
+}
+
+export const viewDetail = (data) => dispatch => {
+  dispatch(viewDetailRequest(data));
+  dispatch(viewDetailSuccess());
 }

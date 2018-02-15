@@ -1,13 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { StyleSheet, View, Text } from 'react-native';
-import { fetchRecipes } from '../actions/recipes';
+import { fetchRecipes, viewDetail } from '../actions/recipes';
 import { List, ListItem } from 'react-native-elements';
 
 export class RecipeList extends React.Component {
-  componentWillMount(){
-    this.props.dispatch(fetchRecipes(this.props.ingredients));
-  }
+  // componentWillMount(){
+  //   this.props.dispatch(fetchRecipes(this.props.ingredients));
+  // }
+
+  // handleDetail(data){
+  //   // console.log(data);
+  //   this.props.dispatch(viewDetail(data))
+  // }
 
   render() {
     return(
@@ -20,6 +25,9 @@ export class RecipeList extends React.Component {
               avatar={{uri:l.image}}
               key={i}
               title={l.title}
+              subtitle={l.publisher}
+              onPress={console.log('pressed')}
+                // (l) => this.props.dispatch(viewDetail(l))}
             />
           ))
         }

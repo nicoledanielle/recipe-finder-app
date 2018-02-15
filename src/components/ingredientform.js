@@ -27,7 +27,8 @@ export class IngredientForm extends React.Component {
 
   render() {
     return(
-    <View style={styles.mainView}>
+    // <View style={styles.mainView}>
+    <View>
       <FormLabel
         labelStyle={{
           color: "#2f3542",
@@ -39,11 +40,11 @@ export class IngredientForm extends React.Component {
         name='form'
         textInputRef='ingreds'
         onChangeText={this.handleInputChange}
-        containerStyle={{
-          backgroundColor: '#f1f2f6',
-          color: "#2f3542",
-          fontWeight: "700"
-        }}
+        // containerStyle={{
+        //   backgroundColor: '#f1f2f6',
+        //   color: "#2f3542",
+        //   fontWeight: "700"
+        // }}
       />
       <Button
         title='Find Recipes!'

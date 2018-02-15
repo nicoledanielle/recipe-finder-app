@@ -4,7 +4,9 @@ import {
   FETCH_RECIPES_REQUEST,
   FETCH_RECIPES_SUCCESS,
   FETCH_RECIPES_ERROR,
-  SEARCH_RECIPES_REQUEST
+  SEARCH_RECIPES_REQUEST,
+  VIEW_DETAIL_REQUEST,
+  VIEW_DETAIL_SUCCESS
 } from '../actions/recipes'
 
 const initialState = {
@@ -39,7 +41,7 @@ export default function recipeReducer(state = initialState, action) {
       loading: false,
       error: null,
       recipes: action.recipes,
-      view: 'detail',
+      view: 'list',
       activeRecipe: action.recipes[0]
     })
   }
@@ -47,6 +49,16 @@ export default function recipeReducer(state = initialState, action) {
     return Object.assign({}, state, {
       error: action.error,
       loading: false
+    })
+  }
+  else if (action.type === VIEW_DETAIL_REQUEST){
+    return Object.assign({}, state, {
+      activeRecipe: action.activeRecipe
+    })
+  }
+  else if (action.type === VIEW_DETAIL_SUCCESS){
+    return Object.assign({}, state, {
+      view: 'detail'
     })
   }
   return state;
