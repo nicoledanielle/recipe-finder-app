@@ -43,7 +43,6 @@ export const searchRecipes = (ingredients) => dispatch => {
 
 export const fetchRecipes = (ingredients) => dispatch => {
   dispatch(fetchRecipesRequest());
-  console.log('here');
   return fetch(`http://food2fork.com/api/search?key=52cd696e0649c791e26a0ef726c4134a=${ingredients}`)
       .then(response => response.json())
       .then(data => console.log(data))
