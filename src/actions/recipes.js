@@ -25,9 +25,12 @@ export const fetchRecipesError = (error) => ({
 })
 
 export const VIEW_DETAIL_REQUEST = 'VIEW_DETAIL_REQUEST';
-export const viewDetailRequest = (activeRecipe) => ({
+export const viewDetailRequest = (image, publisher, title, url) => ({
   type: VIEW_DETAIL_REQUEST,
-  activeRecipe
+  image, 
+  publisher, 
+  title, 
+  url
 })
 
 export const VIEW_DETAIL_SUCCESS = 'VIEW_DETAIL_SUCCESS';
@@ -35,6 +38,17 @@ export const viewDetailSuccess = (view) => ({
   type: VIEW_DETAIL_SUCCESS,
   view
 })
+
+export const LIST_VIEW = 'LIST_VIEW';
+export const listView = (view) => ({
+  type: LIST_VIEW,
+  view
+})
+
+export const returnList = () => dispatch => {
+  console.log('here');
+  dispatch(listView());
+}
 
 export const searchRecipes = (ingredients) => dispatch => {
   dispatch(searchRecipesRequest(ingredients));
@@ -46,7 +60,6 @@ export const fetchRecipes = (ingredients) => dispatch => {
   return fetch(`https://api.edamam.com/search?q=${ingredients}`+'&app_id=dc07b0c8&app_key=c6e8dc04a0635044a392255f4197c39f&from=0&to=30')
       .then(response => response.json())
       .then(data => {
-        console.log(data);
         let newArray = [];
         data.hits.forEach(recipe => {
           let obj = {
@@ -56,7 +69,6 @@ export const fetchRecipes = (ingredients) => dispatch => {
             url: recipe.recipe.url};
           newArray.push(obj);
         })
-        console.log(newArray);
         return newArray;
         // const recipes = data.hits.map(recipe => {
         //   return {
@@ -72,7 +84,7 @@ export const fetchRecipes = (ingredients) => dispatch => {
       .catch(err => fetchRecipesError(err));
 }
 
-export const viewDetail = (data) => dispatch => {
-  dispatch(viewDetailRequest(data));
+export const viewDetail = (image, publisher, title, url) => dispatch => {
+  dispatch(viewDetailRequest(image, publisher, title, url));
   dispatch(viewDetailSuccess());
 }

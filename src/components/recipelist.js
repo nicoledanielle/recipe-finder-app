@@ -9,10 +9,9 @@ export class RecipeList extends React.Component {
   //   this.props.dispatch(fetchRecipes(this.props.ingredients));
   // }
 
-  // handleDetail(data){
-  //   // console.log(data);
-  //   this.props.dispatch(viewDetail(data))
-  // }
+  handleDetail(data){
+    this.props.dispatch(viewDetail(data.image, data.publisher, data.title, data.url))
+  }
 
   render() {
     return(
@@ -26,8 +25,7 @@ export class RecipeList extends React.Component {
               key={i}
               title={l.title}
               subtitle={l.publisher}
-              onPress={console.log('pressed')}
-                // (l) => this.props.dispatch(viewDetail(l))}
+              onPress={() => {this.handleDetail(l)}}
             />
           ))
         }
