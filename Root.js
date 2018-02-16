@@ -35,6 +35,7 @@ export function Root(props) {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     backgroundColor: '#f1f2f6'
   },
 });

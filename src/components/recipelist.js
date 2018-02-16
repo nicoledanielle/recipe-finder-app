@@ -5,9 +5,6 @@ import { fetchRecipes, viewDetail } from '../actions/recipes';
 import { List, ListItem } from 'react-native-elements';
 
 export class RecipeList extends React.Component {
-  // componentWillMount(){
-  //   this.props.dispatch(fetchRecipes(this.props.ingredients));
-  // }
 
   handleDetail(data){
     this.props.dispatch(viewDetail(data.image, data.publisher, data.title, data.url))
@@ -15,7 +12,10 @@ export class RecipeList extends React.Component {
 
   render() {
     return(
-    <View>
+    <View containerStyle={{
+      flex: 1,
+      backgroundColor: '#f1f2f6'
+    }}>
       <List containerStyle={{marginBottom: 20}}>
         {
           this.props.recipes.map((l, i) => (

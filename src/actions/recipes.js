@@ -56,7 +56,7 @@ export const searchRecipes = (ingredients) => dispatch => {
 
 export const fetchRecipes = (ingredients) => dispatch => {
   dispatch(fetchRecipesRequest());
-  return fetch(`https://api.edamam.com/search?q=${ingredients}`+'&app_id=dc07b0c8&app_key=c6e8dc04a0635044a392255f4197c39f&from=0&to=30')
+  return fetch(`https://api.edamam.com/search?q=${ingredients}`+'&app_id=dc07b0c8&app_key=c6e8dc04a0635044a392255f4197c39f&from=0&to=20')
       .then(response => response.json())
       .then(data => {
         let newArray = [];
