@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { StyleSheet, View, Text } from 'react-native';
 import { fetchRecipes, viewDetail } from '../actions/recipes';
 import { List, ListItem } from 'react-native-elements';
+import Header from './header';
 
 export class RecipeList extends React.Component {
 
@@ -16,6 +17,7 @@ export class RecipeList extends React.Component {
       flex: 1,
       backgroundColor: '#f1f2f6'
     }}>
+      <Header headerText={'CHEFSPIRATION'}/>
       <List containerStyle={{marginBottom: 20}}>
         {
           this.props.recipes.map((l, i) => (

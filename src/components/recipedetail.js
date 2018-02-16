@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Button, Tile } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { returnList } from '../actions/recipes';
+import Header from './header';
 
 export class RecipeDetail extends React.Component {
 
@@ -17,6 +18,9 @@ export class RecipeDetail extends React.Component {
 
   render(){
     return(
+      <View style={{
+        flex: 1}}>
+      <Header headerText={'CHEFSPIRATION'}/>
       <View style={{
         flex: 1,
         backgroundColor: '#f1f2f6'
@@ -54,6 +58,7 @@ export class RecipeDetail extends React.Component {
               borderRadius: 5
             }} />
         </View>
+      </View>
       </View>
     )
   }

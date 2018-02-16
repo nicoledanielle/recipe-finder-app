@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import Header from './src/components/header';
 import RecipeList from './src/components/recipelist';
 import IngredientForm from './src/components/ingredientform';
 import RecipeDetail from './src/components/recipedetail';
@@ -29,15 +28,12 @@ export function Root(props) {
     page = <RecipeDetail />
   }
 
-
   return (
     <View style={styles.container}>
       {page}
     </View>
   )
 }
-
-{/* <Header headerText={'CHEFSPIRATION'}/> */}
 
 const styles = StyleSheet.create({
   container: {

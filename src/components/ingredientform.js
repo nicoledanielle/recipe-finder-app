@@ -3,6 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import { FormLabel, FormInput, Button } from 'react-native-elements';
 import { fetchRecipes, searchRecipes } from '../actions/recipes';
 import { connect } from 'react-redux';
+import Header from './header';
 
 export class IngredientForm extends React.Component {
 
@@ -27,8 +28,8 @@ export class IngredientForm extends React.Component {
 
   render() {
     return(
-    // <View style={styles.mainView}>
     <View>
+      <Header headerText={'CHEFSPIRATION'}/>
       <FormLabel
         labelStyle={{
           color: "#2f3542",
