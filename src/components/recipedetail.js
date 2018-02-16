@@ -34,7 +34,7 @@ export class RecipeDetail extends React.Component {
           }}
         />
         <Tile
-          imageSrc={{require: (this.props.activeRecipe.image)}}
+          imageSrc={{uri: (this.props.activeRecipe.image)}}
           title={this.props.activeRecipe.title}
           featured
           caption={this.props.activeRecipe.publisher}
