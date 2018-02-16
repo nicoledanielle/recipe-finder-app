@@ -29,7 +29,7 @@ export class IngredientForm extends React.Component {
   render() {
     return(
     <View>
-      <Header headerText={'CHEFSPIRATION'}/>
+      <Header />
       <FormLabel
         labelStyle={{
           color: "#2f3542",

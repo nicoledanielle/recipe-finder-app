@@ -20,7 +20,7 @@ export class RecipeDetail extends React.Component {
     return(
       <View style={{
         flex: 1}}>
-      <Header headerText={'CHEFSPIRATION'}/>
+      <Header/>
       <View style={{
         flex: 1,
         backgroundColor: '#f1f2f6'

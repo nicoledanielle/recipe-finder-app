@@ -1,20 +1,25 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { connect } from 'react-redux';
+import { begin } from '../actions/recipes';
 
-export default function Header(props) {
-  return(
-    <View style={styles.headContainer}>
-      <View style={styles.iconContainer}>
-        <Icon 
-          name='home'
-          size={30}
-          color='#f1f2f6'
-        />
+export class Header extends React.Component {
+  render(){
+    return(
+      <View style={styles.headContainer}>
+        <View style={styles.iconContainer}>
+          <Icon 
+            name='home'
+            size={30}
+            color='#f1f2f6'
+            onPress={() => this.props.dispatch(begin())}
+          />
+        </View>
+        <Text style={styles.headText}>CHEFSPIRATION</Text>
       </View>
-      <Text style={styles.headText}>{props.headerText}</Text>
-    </View>
-  )
+    )
+  }
 };
 
 const styles = StyleSheet.create({
@@ -42,3 +47,9 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   }
 });
+
+const mapStateToProps = state => ({
+  view: state.view
+});
+
+export default connect(mapStateToProps)(Header);

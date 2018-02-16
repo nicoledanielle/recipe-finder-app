@@ -17,7 +17,7 @@ export class RecipeList extends React.Component {
       flex: 1,
       backgroundColor: '#f1f2f6'
     }}>
-      <Header headerText={'CHEFSPIRATION'}/>
+      <Header />
       <List containerStyle={{marginBottom: 20}}>
         {
           this.props.recipes.map((l, i) => (
