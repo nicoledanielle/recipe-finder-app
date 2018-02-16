@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, Linking } from 'react-native';
 import { connect } from 'react-redux';
 import { Button, Tile } from 'react-native-elements';
 import FontAwesome from 'react-fontawesome';
@@ -14,11 +14,15 @@ export class RecipeDetail extends React.Component {
     this.props.dispatch(returnList());
   }
 
+  openRecipe(){
+    Linking.openURL(this.props.activeRecipe.url).catch(err => console.error('An error occurred', err));
+  }
+
   render(){
     return(
       <View>
         <Button
-          onPress={() => {this.goBack}}
+          onPress={() => {this.goBack()}}
           icon={<FontAwesome name='arrow-left' />}
           title='Back'
           buttonStyle={{
@@ -36,6 +40,7 @@ export class RecipeDetail extends React.Component {
           caption={this.props.activeRecipe.publisher}
         />
         <Button 
+          onPress={() => {this.openRecipe()}}
           title='View Recipe'
           textStyle={{
             fontWeight: "700"
@@ -51,8 +56,6 @@ export class RecipeDetail extends React.Component {
     )
   }
 };
-
-// onPress={() => Linking.openURL(`${this.props.activeRecipe.url}`)}
 
 const mapStateToProps = state => ({
   activeRecipe: state.activeRecipe

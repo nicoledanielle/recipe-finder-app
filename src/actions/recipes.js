@@ -46,7 +46,6 @@ export const listView = (view) => ({
 })
 
 export const returnList = () => dispatch => {
-  console.log('here');
   dispatch(listView());
 }
 
