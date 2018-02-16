@@ -1,5 +1,15 @@
 // import API_KEY from '../config';
 
+export const begin = () => dispatch => {
+  dispatch(startApp('home'));
+}
+
+export const START_APP = 'START_APP';
+export const startApp = (view) => ({
+  type: START_APP,
+  view
+})
+
 export const SEARCH_RECIPES_REQUEST = 'SEARCH_RECIPES_REQUEST';
 export const searchRecipesRequest = (ingredients) => ({
   type: SEARCH_RECIPES_REQUEST,

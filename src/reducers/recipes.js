@@ -7,11 +7,12 @@ import {
   SEARCH_RECIPES_REQUEST,
   VIEW_DETAIL_REQUEST,
   VIEW_DETAIL_SUCCESS,
-  LIST_VIEW
+  LIST_VIEW,
+  START_APP
 } from '../actions/recipes'
 
 const initialState = {
-  view: 'home',
+  view: 'index',
   loading: false,
   error: null,
   text: '',
@@ -26,7 +27,12 @@ const initialState = {
 };
 
 export default function recipeReducer(state = initialState, action) {
-  if (action.type === SEARCH_RECIPES_REQUEST){
+  if (action.type === START_APP){
+    return Object.assign({}, state, {
+      view: action.view
+    })
+  }
+  else if (action.type === SEARCH_RECIPES_REQUEST){
     return Object.assign({}, state, {
       ingredients: action.ingredients
     })

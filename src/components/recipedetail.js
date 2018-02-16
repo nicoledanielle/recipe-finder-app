@@ -47,8 +47,6 @@ export class RecipeDetail extends React.Component {
               fontWeight: "700"
             }}
             buttonStyle={{
-              marginTop:'50',
-              marginBottom:'50',
               backgroundColor: "#ffa502",
               height: 45,
               borderColor: "transparent",
