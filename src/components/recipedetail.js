@@ -30,29 +30,44 @@ export class RecipeDetail extends React.Component {
         alignItems: 'center',
         backgroundColor: '#f1f2f6'
         }}>
+          <View style={{marginTop: 20,
+              marginBottom: 20}}>
           <Icon
             name='arrow-circle-left'
             size={50}
             color='#ff4757'
-            marginTop='50'
-            marginBottom='50'
             onPress={() => {this.goBack()}}
           />
+          </View>
           <Tile
             imageSrc={{uri: (this.props.activeRecipe.image)}}
             title={this.props.activeRecipe.title}
+            titleStyle={{
+              fontWeight: "700",
+              fontSize: 50,
+              color: '#f1f2f6'
+            }}
             featured
             caption={this.props.activeRecipe.publisher}
+            captionStyle={{
+              fontWeight: "700",
+              fontSize: 20,
+              color: '#f1f2f6'
+            }}
           />
           <Button 
             onPress={() => {this.openRecipe()}}
             title='View Recipe'
             textStyle={{
-              fontWeight: "700"
+              fontWeight: "700",
+              fontSize: 20,
+              color: '#f1f2f6'
             }}
             buttonStyle={{
+              marginTop: 30,
               backgroundColor: "#ffa502",
-              height: 45,
+              height: 60,
+              width: 300,
               borderColor: "transparent",
               borderWidth: 0,
               borderRadius: 5
