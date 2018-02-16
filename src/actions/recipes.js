@@ -43,19 +43,30 @@ export const searchRecipes = (ingredients) => dispatch => {
 
 export const fetchRecipes = (ingredients) => dispatch => {
   dispatch(fetchRecipesRequest());
-  return fetch(`http://food2fork.com/api/search?key=52cd696e0649c791e26a0ef726c4134a=${ingredients}`)
+  return fetch(`https://api.edamam.com/search?q=${ingredients}`+'&app_id=dc07b0c8&app_key=c6e8dc04a0635044a392255f4197c39f&from=0&to=30')
       .then(response => response.json())
-      .then(data => console.log(data))
       .then(data => {
-        const recipes = data.recipes.map(recipe => {
-          return {
-            title: recipe.title,
-            image: recipe.image_url,
-            publisher: recipe.publisher,
-            url: recipe.source_url
-          }
+        console.log(data);
+        let newArray = [];
+        data.hits.forEach(recipe => {
+          let obj = {
+            title: recipe.recipe.label, 
+            image: recipe.recipe.image, 
+            publisher: recipe.recipe.source, 
+            url: recipe.recipe.url};
+          newArray.push(obj);
         })
-        return recipes;
+        console.log(newArray);
+        return newArray;
+        // const recipes = data.hits.map(recipe => {
+        //   return {
+        //     title: recipe.label,
+        //     image: recipe.image,
+        //     publisher: recipe.source,
+        //     url: recipe.url
+        //   }
+        // })
+        // return recipes;
       })
       .then(data => dispatch(fetchRecipesSuccess(data)))
       .catch(err => fetchRecipesError(err));
