@@ -28,39 +28,44 @@ export class IngredientForm extends React.Component {
 
   render() {
     return(
-    <View>
+    <View style={styles.mainView}>
       <Header />
-      <FormLabel
-        labelStyle={{
-          color: "#2f3542",
-          fontWeight: "700",
-          backgroundColor: '#f1f2f6',
-        }}
-      >Ingredients</FormLabel>
-      <FormInput
-        name='form'
-        textInputRef='ingreds'
-        onChangeText={this.handleInputChange}
-        // containerStyle={{
-        //   backgroundColor: '#f1f2f6',
-        //   color: "#2f3542",
-        //   fontWeight: "700"
-        // }}
-      />
-      <Button
-        title='Find Recipes!'
-        textStyle={{ 
-          fontWeight: "700"
-        }}
-        buttonStyle={{
-          backgroundColor: "#ffa502",
-          height: 45,
-          borderColor: "transparent",
-          borderWidth: 0,
-          borderRadius: 5
-        }}
-        onPress={this.handleSubmit}
-      />
+      <View style={styles.parentdiv}>
+      <View style={styles.formcontainer}>
+        <FormLabel
+          labelStyle={{
+            color: "#2f3542",
+            fontWeight: "700",
+            backgroundColor: '#f1f2f6',
+            fontSize: 20
+          }}
+        >Ingredients</FormLabel>
+        <FormInput
+          name='form'
+          textInputRef='ingreds'
+          onChangeText={this.handleInputChange}
+          inputStyle={{ 
+            fontSize: 20,
+            height: 60
+          }}
+        />
+        <Button
+          title='Find Recipes!'
+          textStyle={{ 
+            fontWeight: "700",
+            fontSize: 20
+          }}
+          buttonStyle={{
+            backgroundColor: "#ffa502",
+            height: 60,
+            borderColor: "transparent",
+            borderWidth: 0,
+            borderRadius: 5
+          }}
+          onPress={this.handleSubmit}
+        />
+      </View>
+      </View>
     </View>
     );
   }
@@ -69,6 +74,13 @@ export class IngredientForm extends React.Component {
 const styles = StyleSheet.create({
   mainView: {
     backgroundColor: "#f1f2f6"
+  },
+  parentdiv: {
+    alignItems: 'center'
+  },
+  formcontainer: {
+    marginTop: 100,
+    width: 400
   }
 });
 
