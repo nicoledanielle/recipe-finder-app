@@ -1,6 +1,4 @@
-This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
-
-# Wordcloud Generator
+# Chefspiration
 <p align='center'>
     <img width='600' src='https://nicolegilbert.surge.sh/images/chefspiration.png'>	
 </p>
